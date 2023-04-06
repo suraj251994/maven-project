@@ -1,7 +1,7 @@
 pipeline{
     agent any
     environment{
-        TOMCAT_URL = "http://3.88.2.185:8080/"
+        TOMCAT_URL = "http://54.156.6.251:8080/"
         TOMCAT_USERNAME = "admin"
         TOMCAT_PASSWORD = "admin"
         WAR_FILE = "**.*war"
@@ -25,8 +25,8 @@ pipeline{
       }
 	     stage('Deploy'){
         steps{
-		     sshagent(['3.88.2.185']) {
-             sh "scp -o StrictHostKeyChecking=no webapp/target/webapp.war ubuntu@3.88.2.185:/opt/tomcat/webapps"
+		     sshagent(['54.156.6.251']) {
+             sh "scp -o StrictHostKeyChecking=no webapp/target/webapp.war ubuntu@54.156.6.251:/opt/tomcat/webapps"
             } 
         }
       }
